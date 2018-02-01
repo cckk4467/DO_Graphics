@@ -1,0 +1,22 @@
+﻿  test.cpp
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\test.cpp(8): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\test.cpp(12): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\test.cpp(39): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  DO_Window.cpp
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_window.cpp(16): warning C4244: “=”: 从“float”转换到“Uint64”，可能丢失数据
+  DO_Text.cpp
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_text.cpp(32): warning C4838: 从“int”转换到“Uint8”需要收缩转换
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_text.cpp(49): warning C4244: “*=”: 从“float”转换到“int”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_text.cpp(76): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_text.cpp(85): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+  DO_Image.cpp
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_image.cpp(60): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_image.cpp(114): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_image.cpp(115): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_image.cpp(116): warning C4244: “*=”: 从“double”转换到“int”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_image.cpp(132): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\do_image.cpp(140): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+  正在生成代码...
+    正在创建库 E:\我的 东东\EasyX学习\SDL\DO_Graphics\Debug\DO_Graphics.lib 和对象 E:\我的 东东\EasyX学习\SDL\DO_Graphics\Debug\DO_Graphics.exp
+  DO_Graphics.vcxproj -> E:\我的 东东\EasyX学习\SDL\DO_Graphics\Debug\DO_Graphics.exe
+  DO_Graphics.vcxproj -> E:\我的 东东\EasyX学习\SDL\DO_Graphics\Debug\DO_Graphics.pdb (Full PDB)
