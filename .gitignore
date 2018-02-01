@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+*.db
+*.opendb
+*.ttf
+*.pdb
+*.bmp
+*.png

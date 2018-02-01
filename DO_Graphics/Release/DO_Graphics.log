@@ -1,0 +1,24 @@
+﻿  DO_Image.cpp
+DO_Graphics\DO_Image.cpp(51): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+DO_Graphics\DO_Image.cpp(105): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+DO_Graphics\DO_Image.cpp(106): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+DO_Graphics\DO_Image.cpp(107): warning C4244: “*=”: 从“double”转换到“int”，可能丢失数据
+DO_Graphics\DO_Image.cpp(118): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+DO_Graphics\DO_Image.cpp(126): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+  DO_Text.cpp
+DO_Graphics\DO_Text.cpp(32): warning C4838: 从“int”转换到“Uint8”需要收缩转换
+DO_Graphics\DO_Text.cpp(48): warning C4244: “*=”: 从“float”转换到“int”，可能丢失数据
+DO_Graphics\DO_Text.cpp(75): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+DO_Graphics\DO_Text.cpp(84): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+  DO_Window.cpp
+DO_Graphics\DO_Window.cpp(16): warning C4244: “=”: 从“float”转换到“Uint64”，可能丢失数据
+  test.cpp
+DO_Graphics\test.cpp(11): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+DO_Graphics\test.cpp(15): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+DO_Graphics\test.cpp(39): warning C4244: “参数”: 从“float”转换到“short”，可能丢失数据
+    正在创建库 E:\我的 东东\EasyX学习\SDL\杂项目\DO_Graphics\Release\DO_Graphics.lib 和对象 E:\我的 东东\EasyX学习\SDL\杂项目\DO_Graphics\Release\DO_Graphics.exp
+  正在生成代码
+  All 267 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  DO_Graphics.vcxproj -> E:\我的 东东\EasyX学习\SDL\杂项目\DO_Graphics\Release\DO_Graphics.exe
+  DO_Graphics.vcxproj -> E:\我的 东东\EasyX学习\SDL\杂项目\DO_Graphics\Release\DO_Graphics.pdb (Full PDB)

@@ -1,0 +1,6 @@
+﻿  test.cpp
+e:\我的 东东\easyx学习\sdl\杂项目\do_graphics\do_graphics\do_graphics\test.cpp(8): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\杂项目\do_graphics\do_graphics\do_graphics\test.cpp(12): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\杂项目\do_graphics\do_graphics\do_graphics\test.cpp(39): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  DO_Graphics.vcxproj -> E:\我的 东东\EasyX学习\SDL\杂项目\DO_Graphics\Debug\DO_Graphics.exe
+  DO_Graphics.vcxproj -> E:\我的 东东\EasyX学习\SDL\杂项目\DO_Graphics\Debug\DO_Graphics.pdb (Full PDB)
