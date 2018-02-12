@@ -11,6 +11,11 @@ float f2(float x)
 {
 	return x - sin(x * 2 * PI) / (2 * PI);
 }
+float f3(float x, float a)
+{
+	auto f = [](float x, float a)->float { return cos(a * PI * (x - 0.5 + 1 / (2 * a))); };
+	return 1 / f(0, a) * f(x, a) / 2 + 0.5;
+}
 int main(int argc, char *argv[])
 {
 
@@ -29,14 +34,18 @@ int main(int argc, char *argv[])
 	i.zoom = 50;
 	i.Draw(233,233);
 	SDL_SetRenderTarget(win.rend, NULL);
+
+	const Uint8 *state = SDL_GetKeyboardState(NULL);
 	
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "2");
-	float y = 255;
+	double y = 0.0;
 	while (win.BeginDraw())
 	{
 		//i.setAlpha(y);
-		y -= win.getDT() * 10;
-		j.Draw(y, 233); y += win.getDT()*100;
+		j.Draw(f3(y,1.5)*100, 233); 
+		if (state[SDL_GetScancodeFromName("h")])y += win.getDT();
+		if (state[SDL_GetScancodeFromName("r")])y = 0;
+		cout << f3(y, 1.5) << " " <<  y << endl; if (y > 1)y = 1.0001;
 		SDL_SetRenderDrawColor(win.rend,233,23,23,23);
 		win.EndDraw();
 	}
