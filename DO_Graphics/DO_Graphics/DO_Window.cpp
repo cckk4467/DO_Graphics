@@ -13,6 +13,7 @@ bool DO_Window::Init(int w, int h, char *title,char *ttf,int size_font)
 	font = TTF_OpenFont(ttf, size_font);
 	font_s = size_font;
 
+	keystate = SDL_GetKeyboardState(NULL);
 	ds = DT = 0;
 	return false;
 }
@@ -60,6 +61,11 @@ int DO_Window::getFPS()
 float DO_Window::getDT()
 {
 	return DT < 1 ? DT : 1;
+}
+
+bool DO_Window::KeyDown(char * n)
+{
+	return keystate[SDL_GetScancodeFromName(n)];
 }
 
 DO_Window::~DO_Window()

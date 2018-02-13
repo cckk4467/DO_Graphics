@@ -15,6 +15,7 @@ private:
 	int FPS,  //保存刷新率
 		count;//FPS计数器
 	float DT;//1/FPS 实时记录
+	const Uint8 *keystate;
 public:
 	SDL_Window *window;
 	SDL_Renderer *rend;
@@ -28,6 +29,7 @@ public:
 	void EndDraw();
 	void SetZoom(float sx, float sy);
 	int getFPS();//获取屏幕刷新率
-	float getDT();//获取即时屏幕刷新率倒数
+	float getDT();//获取即时屏幕刷新率倒数,即两帧之间的时间差
+	bool KeyDown(char *n);
 	~DO_Window();
 };
