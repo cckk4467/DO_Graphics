@@ -41,5 +41,8 @@
     <ClCompile Include="DO_Graphics\DO_Text.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="DO_Graphics\test2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

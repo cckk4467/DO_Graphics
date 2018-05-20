@@ -36,4 +36,5 @@
 *.pdb
 *.bmp
 *.png
+*.lik
 Debug/*.*

@@ -1,6 +1,7 @@
 #include "DO_Window.h"
+#include "DO_Image.h"
 
-bool DO_Window::Init(int w, int h, char *title,char *ttf,int size_font)
+DO_Window::DO_Window(int w, int h, char *title,char *ttf,int size_font)
 {
 	window = NULL;
 	rend = NULL;
@@ -15,12 +16,13 @@ bool DO_Window::Init(int w, int h, char *title,char *ttf,int size_font)
 
 	keystate = SDL_GetKeyboardState(NULL);
 	ds = DT = 0;
-	return false;
+	return;
 }
 
 bool DO_Window::BeginDraw()
 {
-	SDL_RenderClear(rend);
+	SetWorkingImage(NULL);
+	//SDL_RenderClear(rend);
 	SDL_PollEvent(&even);
 	if (even.type == SDL_QUIT)
 	{
@@ -66,6 +68,35 @@ float DO_Window::getDT()
 bool DO_Window::KeyDown(char * n)
 {
 	return keystate[SDL_GetScancodeFromName(n)];
+}
+
+bool DO_Window::SetWorkingImage(DO_Image *image)
+{
+	if (SDL_SetRenderTarget(rend, image ? image->gett() : NULL) == -1)
+		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error:", "DO_Window::SetWorkingImage Fail", window);
+	return true;
+}
+
+void DO_Window::DrawLine(int x, int y, int x2, int y2)
+{
+	SDL_RenderDrawLine(rend, x, y, x2, y2);
+}
+
+void DO_Window::DrawPoint(int x, int y)
+{
+	SDL_RenderDrawPoint(rend, x, y);
+}
+
+void DO_Window::SetDrawColor(int r, int g, int b, int a)
+{
+	SDL_SetRenderDrawColor(rend, r, g, b, a);
+}
+
+void DO_Window::GetDrawColor(short & r, short & g, short & b, short & a)
+{
+	Uint8 rr, gg, bb, aa;
+	SDL_GetRenderDrawColor(rend, &rr, &gg, &bb, &aa);
+	a = (short)aa; r = (short)rr; g = (short)gg; b = (short)bb;
 }
 
 DO_Window::~DO_Window()

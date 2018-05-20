@@ -14,6 +14,7 @@ private:
 	bool static_ = false;//图片是否静态
 
 	DO_Window *win;
+	DO_Image();
 public:
 	double angle;
 	float zoom;
@@ -31,6 +32,7 @@ public:
 	bool setPixels(std::function<void(int x, int y, Uint32 *pixel)>);
 
 	void Draw(int x, int y, int cx = -1, int cy = -1);//这里要改成封装过的DO_Window
+	                      //这里的(cx,cy)是旋转中心，跟绘图基准点无关！
 	SDL_Texture *gett();
 
 	void setRGB(short r, short g, short b);//整体色调

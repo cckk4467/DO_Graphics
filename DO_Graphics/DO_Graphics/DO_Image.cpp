@@ -2,11 +2,12 @@
 #include <cstring>
 #include<iostream>
 using namespace std;
+#define ShowError(x,y) SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, x, y,  win->window)
 
 bool DO_Image::Load_static(char p[22])
 {
 	image = IMG_LoadTexture(win->rend, p);
-
+	if (image == NULL)ShowError("DO_Image::Load_static", "image==NULL");
 	SDL_SetTextureBlendMode(image, SDL_BLENDMODE_BLEND);
 	SDL_QueryTexture(image, 0, 0, &width, &height);
 	static_ = true;
@@ -111,8 +112,8 @@ void DO_Image::Draw(int x, int y, int cenx, int ceny)
 {
 	SDL_Rect r;
 	SDL_QueryTexture(image, 0, 0, &r.w, &r.h);
-	r.x = x - r.w*zoom / 200.0;
-	r.y = y - r.h*zoom / 200.0;
+	r.x = x - r.w * zoom / 200.0;
+	r.y = y - r.h * zoom / 200.0;
 	r.w *= zoom / 100.0; r.h *= zoom / 100.0;
 
 	SDL_Point po = { cenx,ceny };
