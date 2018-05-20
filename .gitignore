@@ -37,5 +37,6 @@
 *.bmp
 *.png
 *.lik
+*.suo
 Debug/*.*
 DO_Graphics/Debug/*.*
