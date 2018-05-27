@@ -138,7 +138,8 @@ void DO_Image::setRGB(short r, short g, short b)
 
 void DO_Image::setAlpha(short a)
 {
-	SDL_SetTextureAlphaMod(image, a);
+	int ee = SDL_SetTextureAlphaMod(image, a);
+	if (ee == -1)ShowError("SetAlpha Error","Do you use Load(¡°x¡±) to load a piicture?");
 	A = a;
 }
 
