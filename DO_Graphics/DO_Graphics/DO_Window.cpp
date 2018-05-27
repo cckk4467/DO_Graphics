@@ -87,6 +87,19 @@ void DO_Window::DrawPoint(int x, int y)
 	SDL_RenderDrawPoint(rend, x, y);
 }
 
+void DO_Window::DrawRectangle(int x, int y, int x2, int y2, bool fill)
+{
+	SDL_Rect r = { x,y,x2,y2 };
+	if (fill)
+	{
+		SDL_RenderFillRect(rend, &r);
+	}
+	else
+	{
+		SDL_RenderDrawRect(rend, &r);
+	}
+}
+
 void DO_Window::SetDrawColor(int r, int g, int b, int a)
 {
 	SDL_SetRenderDrawColor(rend, r, g, b, a);

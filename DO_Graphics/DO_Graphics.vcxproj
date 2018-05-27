@@ -158,6 +158,7 @@
     <ClCompile Include="DO_Graphics\DO_Window.cpp" />
     <ClCompile Include="DO_Graphics\test.cpp" />
     <ClCompile Include="DO_Graphics\test2.cpp" />
+    <ClCompile Include="DO_Graphics\test3.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

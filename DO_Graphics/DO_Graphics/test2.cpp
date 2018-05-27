@@ -6,16 +6,23 @@ int main(int argc, char *argv[])
 {
 	DO_Window w(1000, 618, "dodou", "simhei.ttf", 32);
 	DO_Image p(&w);
-	p.Load("gg.png");
+	p.Load(100, 100);
+	w.SetWorkingImage(&p);
+	w.SetDrawColor(255, 255, 255, 255);
+	w.DrawRectangle(0, 0, 100, 100); 
+	w.SetDrawColor(0, 255, 0, 255);
+	w.DrawRectangle(30, 30, 60, 60, 0);
 	
-	//p.setPixel(233, 233, 255, 255, 0, 255);
+	double an = 0; 
+	w.SetWorkingImage(NULL);
 	while (w.BeginDraw())
 	{
-		//w.SetWorkingImage(&p);
-		w.SetDrawColor(255, 255, 255, 255);
-		w.DrawLine(1, 1, 500, 500);
-		//w.SetWorkingImage(NULL);
-		p.Draw(0, 233);
+		w.SetDrawColor(0, 0, 0, 255);
+		SDL_RenderClear(w.rend);
+		an += 0.001;
+		p.angle = an;
+		p.Draw(100, 100);
+		p.setRGB(123, 123, 123);
 		w.EndDraw();
 	}
 	return 0;

@@ -40,6 +40,7 @@ public:
 	bool SetWorkingImage(DO_Image *image);
 	void DrawLine(int x, int y, int x2, int y2);
 	void DrawPoint(int x, int y);
+	void DrawRectangle(int x, int y, int x2, int y2, bool fill = true);
 	void SetDrawColor(int r,int g,int b,int a);
 	void GetDrawColor(short &r, short &g, short &b, short &a);
 	~DO_Window();
