@@ -3,7 +3,7 @@
 #include<iostream>
 #include "SDL_syswm.h"
 using namespace std;
-int main(int argc, char *argv[])
+int main2(int argc, char *argv[])
 {
 	DO_Window w(1000, 618, "dodou", "simhei.ttf", 32);
 	DO_Image p(&w);
@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
 	HRGN rgn = CreateEllipticRgn(0 + cx, 0 + cy, 200 + cx, 200 + cy);
 	SetWindowRgn(hwnd, rgn, true);
 	SetWindowPos(hwnd, 0, 0, 0 , 200, 200, 0);
-	p.Load_static("data/ze.png");
-	s.Load_static("data/gay.png");
-	zt.Load_static("data/wr.png");
+	p.Load_static("ze.png");
+	s.Load_static("gay.png");
+	zt.Load_static("wr.png");
 	
 	double an = 0; 
 	w.SetWorkingImage(NULL);

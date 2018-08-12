@@ -7,7 +7,7 @@ DO_Window::DO_Window(int w, int h, char *title,char *ttf,int size_font)
 	rend = NULL;
 
 	window = SDL_CreateWindow(title, 233, 233, w, h, SDL_WINDOW_OPENGL);
-	rend = SDL_CreateRenderer(window, -1, 0);
+	rend = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
 
 	IMG_Init(IMG_INIT_PNG);
 	TTF_Init();
@@ -16,13 +16,16 @@ DO_Window::DO_Window(int w, int h, char *title,char *ttf,int size_font)
 
 	keystate = SDL_GetKeyboardState(NULL);
 	ds = DT = 0;
+
+	SDL_GetWindowSurface(window)->format = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
+	SDL_SetRenderDrawBlendMode(rend, SDL_BLENDMODE_BLEND);
 	return;
 }
 
 bool DO_Window::BeginDraw()
 {
 	SetWorkingImage(NULL);
-	//SDL_RenderClear(rend);
+	SDL_RenderClear(rend);
 	SDL_PollEvent(&even);
 	if (even.type == SDL_QUIT)
 	{

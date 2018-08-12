@@ -38,6 +38,7 @@ public:
 
 	//Render¼¸ºÎ»æÍ¼
 	bool SetWorkingImage(DO_Image *image);
+	/*asdasd*/
 	void DrawLine(int x, int y, int x2, int y2);
 	void DrawPoint(int x, int y);
 	void DrawRectangle(int x, int y, int x2, int y2, bool fill = true);

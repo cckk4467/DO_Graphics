@@ -37,6 +37,33 @@ void DO_Text::addT(int r, int g, int b, char *ss, ...)
 	SDL_FreeSurface(s);
 }
 
+void DO_Text::setT(int r, int g, int b, char * ss, ...)
+{
+	if (p.size())
+	{
+		for (auto i = p.begin(); i != p.end(); i++)
+		{
+			SDL_DestroyTexture(*i);
+		}
+
+		p.clear();
+	}
+
+	char buff[128] = "";
+	va_list    arglist;
+	va_start(arglist, ss);
+	_vsnprintf_s(buff, sizeof(buff), ss, arglist);
+	va_end(arglist);
+
+	SDL_Texture *t;
+	SDL_Color col = { r,g,b };
+	SDL_Surface *s = TTF_RenderUTF8_Blended(font, localeToUTF8(buff), col);
+	t = SDL_CreateTextureFromSurface(win->rend, s);
+	p.push_back(t);
+	length += strlen(ss);
+	SDL_FreeSurface(s);
+}
+
 void DO_Text::Draw(int x, int y)
 {
 	int xx = x;

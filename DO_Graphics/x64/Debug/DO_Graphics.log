@@ -1,0 +1,11 @@
+﻿  test4.cpp
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\test4.cpp(16): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\test4.cpp(27): warning C4244: “参数”: 从“double”转换到“short”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\test4.cpp(29): warning C4244: “参数”: 从“double”转换到“short”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\test4.cpp(34): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\test4.cpp(18): warning C4101: “b”: 未引用的局部变量
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\test4.cpp(18): warning C4101: “g”: 未引用的局部变量
+e:\我的 东东\easyx学习\sdl\do_graphics\do_graphics\do_graphics\test4.cpp(18): warning C4101: “r”: 未引用的局部变量
+cl : 命令行 warning D9028: 最小重新生成失败，正在转换为标准生成
+  DO_Graphics.vcxproj -> E:\我的 东东\EasyX学习\SDL\DO_Graphics\x64\Debug\DO_Graphics.exe
+  DO_Graphics.vcxproj -> E:\我的 东东\EasyX学习\SDL\DO_Graphics\x64\Debug\DO_Graphics.pdb (Full PDB)

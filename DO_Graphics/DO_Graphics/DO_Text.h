@@ -27,15 +27,28 @@ private:
 
 public:
 	DO_Text() :font(NULL), length(0),size(0) {}
-	bool Init(DO_Window *win_,  int siz);//初始化，窗口，字体文件，字体大小
-	void addT(int r, int g, int b, char *ss, ...);//添加段，rgba（字体颜色，透明度）
-	void Draw(int x, int y);//在指定位置渲染
+	/*初始化，窗口，字体文件，字体大小*/
+	bool Init(DO_Window *win_,  int siz);
+
+	/*添加字段，rgba（字体颜色，透明度）*/
+	void addT(int r, int g, int b, char *ss, ...);
+
+	/*设置字段，rgba（字体颜色，透明度） 会覆盖掉原有的文字(其实就是init + addT)*/
+	void setT(int r, int g, int b, char *ss, ...);
+
+	/*在指定位置渲染*/
+	void Draw(int x, int y);
 	
-	void setRGB(short r, short g, short b);//整体色调
-	void setAlpha(short a);//整体透明度
+	/*设置整体色调*/
+	void setRGB(short r, short g, short b);
+
+	/*设置整体透明度*/
+	void setAlpha(short a);
+
 	short getR();
 	short getG();
 	short getB();
-	int getlength();//返回字符串长度（所有段）
+	/*返回字符串长度（所有段）*/
+	int getlength();
 	~DO_Text();
 };

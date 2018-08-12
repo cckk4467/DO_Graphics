@@ -25,10 +25,10 @@ int main1(int argc, char *argv[])
 	i.Init(&win, 32);
 	i.addT(0xff, 0xff, 0xff, "共产主义好！"); i.addT(0xff, 0xff, 0xff, "个球");*/
 	DO_Image i(&win);
-	cout << i.Load("gay.png") << endl;
+	cout << i.Load_dynamic("gay.png") << endl;
 
 	DO_Image j(&win);
-	j.Load(300, 300);
+	j.Load_target(300, 300);
 	cout << SDL_SetRenderTarget(win.rend, j.gett()) << endl;
 	i.zoom = 50;
 	i.Draw(233,233);

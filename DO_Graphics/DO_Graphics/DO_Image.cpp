@@ -15,14 +15,16 @@ bool DO_Image::Load_static(char p[22])
 	return image != NULL;
 }
 
-bool DO_Image::Load(char p[22])
+bool DO_Image::Load_dynamic(char p[22])
 {
 	format = SDL_GetWindowSurface(win->window)->format;
 
 	SDL_Surface *sur1 = IMG_Load(p);
+	if (sur1 == NULL) { ShowError("Load_dynamic", "failed load"); return 0;}
 
 	SDL_Surface *sur = SDL_ConvertSurface(sur1, format, NULL);
-	image = SDL_CreateTexture(win->rend, SDL_GetWindowPixelFormat(win->window), SDL_TEXTUREACCESS_STREAMING, sur->w, sur->h);
+	image = SDL_CreateTexture(win->rend, format->format, SDL_TEXTUREACCESS_STREAMING, sur->w, sur->h);
+	SDL_SetTextureBlendMode(image, SDL_BLENDMODE_BLEND);
 
 	void* mPixels;
 	int mPitch;
@@ -40,34 +42,50 @@ bool DO_Image::Load(char p[22])
 	return image != NULL;
 }
 
-bool DO_Image::Load(int x, int y)
+bool DO_Image::Load_dynamic(int x, int y)
 {
-	image = SDL_CreateTexture(win->rend, SDL_GetWindowPixelFormat(win->window), SDL_TEXTUREACCESS_TARGET, x, y);
+	format = SDL_GetWindowSurface(win->window)->format;
+	image = SDL_CreateTexture(win->rend, format->format, SDL_TEXTUREACCESS_STREAMING, x, y);
+	width = x;
+	height = y;
+	SDL_SetTextureBlendMode(image, SDL_BLENDMODE_BLEND);
+	return true;
+}
 
-	return false;
+bool DO_Image::Load_target(int x, int y)
+{
+	format = SDL_GetWindowSurface(win->window)->format;
+	image = SDL_CreateTexture(win->rend, format->format, SDL_TEXTUREACCESS_TARGET, x, y);
+	width = x;
+	height = y;
+	static_ = true;
+	SDL_SetTextureBlendMode(image, SDL_BLENDMODE_BLEND);
+	return true;
 }
 
 bool DO_Image::setPixel(int x, int y, short r, short g, short b, short a)
 {
 	if (static_)return false;
-	if (x > width || y > height)return false;
+	if (x > width || y > height || x < 1 || y < 1) { ShowError("setPixel", "range is over [1-width,1-heigh]"); return false; }
 
 	void* mPixels;
 	int mPitch;
 
-	SDL_LockTexture(image, NULL, &mPixels, &mPitch);
+	int de = SDL_LockTexture(image, NULL, &mPixels, &mPitch);
+	if (de == -1)exit(0);
 
 	Uint32 *p = (Uint32*)mPixels;
 	p[x - 1 + (y - 1) * width] = SDL_MapRGBA(format, r, g, b, a);
-
+	
 	SDL_UnlockTexture(image);
 	return true;
+
 }
 
 bool DO_Image::getPixel(int x, int y, short &r, short &g, short &b, short &a)
 {
 	if (static_)return false;
-	if (x > width || y > height)return false;
+	if (x > width || y > height || x < 1 || y < 1) { ShowError("getPixel", "range is over [1-width,1-heigh]"); return false; }
 
 	void* mPixels;
 	int mPitch;
@@ -77,7 +95,8 @@ bool DO_Image::getPixel(int x, int y, short &r, short &g, short &b, short &a)
 	Uint32 *p = (Uint32*)mPixels;
 
 	Uint8 rr, gg, bb, aa;
-	SDL_GetRGBA(*p, format, &rr, &gg, &bb, &aa);
+	Uint32 ge = p[x - 1 + (y - 1) * width];
+	SDL_GetRGBA(ge, format, &rr, &gg, &bb, &aa);
 
 	a = (short)aa; r = (short)rr; g = (short)gg; b = (short)bb;
 	SDL_UnlockTexture(image);

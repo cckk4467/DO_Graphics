@@ -6,7 +6,7 @@ int main3(int argc, char *argv[])
 {
 	DO_Window w(1000, 618, "dodou", "simhei.ttf", 32);
 	DO_Image p(&w);
-	p.Load("gg.png");
+	p.Load_dynamic("gg.png");
 
 	//p.setPixel(233, 233, 255, 255, 0, 255);
 	while (w.BeginDraw())
