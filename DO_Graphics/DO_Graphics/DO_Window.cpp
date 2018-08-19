@@ -17,7 +17,7 @@ DO_Window::DO_Window(int w, int h, char *title,char *ttf,int size_font)
 	keystate = SDL_GetKeyboardState(NULL);
 	ds = DT = 0;
 
-	SDL_GetWindowSurface(window)->format = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
+	SDL_GetWindowSurface(window)->format = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);//这个函数我找了一万年！
 	SDL_SetRenderDrawBlendMode(rend, SDL_BLENDMODE_BLEND);
 	return;
 }
@@ -77,6 +77,9 @@ bool DO_Window::SetWorkingImage(DO_Image *image)
 {
 	if (SDL_SetRenderTarget(rend, image ? image->gett() : NULL) == -1)
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error:", "DO_Window::SetWorkingImage Fail", window);
+	
+	if (image!=NULL && image->format == NULL)
+		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error:", "DO_Window::SetWorkingImage Fail", window);
 	return true;
 }
 
@@ -87,7 +90,7 @@ void DO_Window::DrawLine(int x, int y, int x2, int y2)
 
 void DO_Window::DrawPoint(int x, int y)
 {
-	SDL_RenderDrawPoint(rend, x, y);
+	int de = SDL_RenderDrawPoint(rend, x, y);
 }
 
 void DO_Window::DrawRectangle(int x, int y, int x2, int y2, bool fill)

@@ -32,13 +32,17 @@ public:
 	bool BeginDraw();
 	void EndDraw();
 	void SetZoom(float sx, float sy);
-	int getFPS();//获取屏幕刷新率
-	float getDT();//获取即时屏幕刷新率倒数,即两帧之间的时间差
+	/*获取屏幕刷新率*/
+	int getFPS();
+
+	/*获取即时屏幕刷新率倒数,即两帧之间的时间差*/
+	float getDT();
+
+	/*return 1 On put down */
 	bool KeyDown(char *n);
 
 	//Render几何绘图
 	bool SetWorkingImage(DO_Image *image);
-	/*asdasd*/
 	void DrawLine(int x, int y, int x2, int y2);
 	void DrawPoint(int x, int y);
 	void DrawRectangle(int x, int y, int x2, int y2, bool fill = true);

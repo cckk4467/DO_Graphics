@@ -1,40 +1,53 @@
 #include "time.h"
 #include "DO_Graphics.h"
-
+#include <iostream>
+#include <cmath>
+#include <bitset>
+#define PI 3.1415926
 using namespace std;
-int main(int argc, char *argv[])
+int cx=150, cy=150;
+bitset<300 * 300> bj;
+int gay(DO_Image *a,int x, int y,float dis)
+{
+	if (bj[a->PtoL(x, y)])return 0;
+	bj[a->PtoL(x, y)] = 1;
+	float dist = hypot(150 - x, 150 - y);
+	short r, g, b, al;
+	a->getPixel(cx, cy, r, g, b, al); al = 255;
+	a->setPixel(x, y, r, g, b, (float)al*max(1 - dist / dis, 0));
+	if (dist >= dis)return 0;
+	gay(a, x + 1, y, dis);
+	gay(a, x, y + 1, dis);
+	gay(a, x - 1, y, dis);
+	gay(a, x, y - 1, dis);
+	return 0;
+}
+int main4(int argc, char *argv[])
 {
 	DO_Window win(640, 480, "点模糊", "simhei.ttf", 16);
-	DO_Text t; t.Init(&win, 32);
 	DO_Image ima(&win);
-	DO_Image bj(&win); DO_Image pic(&win);
-	DO_Image po(&win); po.Load_dynamic(10,10);
-	bj.Load_target(300, 300); pic.Load_dynamic("gg.png");
-	DO_Image mo(&win);
-	mo.Load_static("objects.png");
-	ima.Load_dynamic(300,300);
+	ima.Load_dynamic(30, 30);
 	srand(time(0));
-	//for(int i=1;i<=1000;i++)ima.setPixel(1+rand()%300, 1+rand()%300, rand()%256, 0xff, 0xff, 0xff);
-	short r, g, b, a=0;
-	double alpha = 0;
-	//mo.setPixel(1,1,0,255,0,255);
-	//SDL_SetTextureBlendMode(mo.gett(), SDL_BLENDMODE_MOD);
-	po.setPixel(3,3,255,245,255,0);
+	double r = ima.getR(), g = ima.getG(), b = ima.getB(), a=1;
+	bj.reset();
+	ima.setPixels([&](int x, int y, Uint32* p)
+	{
+		p[ima.PtoL(x, y)] = SDL_MapRGBA(ima.format,
+			0*max(1 - hypot(x - 15, y - 15) / 16, 0),
+			255,
+			255,
+			255.0*max(1 - hypot(x - 15, y - 15) / 16, 0));//
+	});//这就是点模糊我能写的最高效率的代码了，cpu在循环体跑20fps哈哈哈，配合setrgb、setalpha可以写个不错的粒子系统了
+	//gay(&ima, 150, 150, 100);
 	while (win.BeginDraw())
 	{
-		if (win.KeyDown("space"))alpha += 0.01;
-		//pic.setAlpha(a);
-		mo.setAlpha(alpha);
-		mo.Draw(250,250);
-		po.setPixel(3, 3, 255, 245, 255, alpha);
-		pic.Draw(150,150);
-		po.Draw(50, 50);
-
-		//win.SetDrawColor(255,255,0,alpha);
-		win.DrawLine(0, 0, 100, alpha);
-
-		t.Draw(0,0);
-		
+		if (win.KeyDown("space"))a+=0.01;
+		//ima.setPixel(150, 150, 255, 255, 255, a);
+		//for (int i = 1; i <= a; i+=10)ima.Draw(200+i*cos(a/100),200-i*sin(a/100));
+		//ima.setAlpha(a);
+		ima.Draw(200, 200);
+		ima.setRGB(255,255-a,255-1);
+		//ima.zoom = a;
 		win.EndDraw();
 	}
 	//SDL_PIXELFORMAT_RGB888

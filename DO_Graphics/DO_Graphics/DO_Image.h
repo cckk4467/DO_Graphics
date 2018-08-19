@@ -18,11 +18,15 @@ private:
 public:
 	double angle;
 	float zoom;
-	short R, G, B, A;//颜色化通道，alpha（透明度通道）
-	int width, height;
-	SDL_PixelFormat *format;
+	short R = 255, G = 255, B = 255, A = 255;//颜色化通道，alpha（透明度通道）
+	int width = 0, height = 0;
+	SDL_PixelFormat *format = NULL;
 
 	DO_Image(DO_Window *w) :image(NULL), angle(0), zoom(100.00), R(255), G(255), B(255), A(255), win(w){}
+
+	/*从现有sdl纹理加载（不能修改像素）
+	参数:p文件名*/
+	bool Load_texture(SDL_Texture *);
 
 	/*获取静态图片（不能修改像素）
 	参数:p文件名*/

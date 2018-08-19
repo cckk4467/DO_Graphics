@@ -4,8 +4,19 @@
 using namespace std;
 #define ShowError(x,y) SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, x, y,  win->window)
 
+bool DO_Image::Load_texture(SDL_Texture *ye)
+{
+	if (image != NULL)return false;
+	image = ye;
+	Uint32 form;
+	SDL_QueryTexture(image, &form, 0, &width, &height);
+	format = SDL_AllocFormat(form);
+	return true;
+}
+
 bool DO_Image::Load_static(char p[22])
 {
+	if (image != NULL)return false;
 	image = IMG_LoadTexture(win->rend, p);
 	if (image == NULL)ShowError("DO_Image::Load_static", "image==NULL");
 	SDL_SetTextureBlendMode(image, SDL_BLENDMODE_BLEND);
@@ -17,6 +28,7 @@ bool DO_Image::Load_static(char p[22])
 
 bool DO_Image::Load_dynamic(char p[22])
 {
+	if (image != NULL)return false;
 	format = SDL_GetWindowSurface(win->window)->format;
 
 	SDL_Surface *sur1 = IMG_Load(p);
@@ -44,6 +56,8 @@ bool DO_Image::Load_dynamic(char p[22])
 
 bool DO_Image::Load_dynamic(int x, int y)
 {
+	if (image != NULL)return false;
+
 	format = SDL_GetWindowSurface(win->window)->format;
 	image = SDL_CreateTexture(win->rend, format->format, SDL_TEXTUREACCESS_STREAMING, x, y);
 	width = x;
@@ -54,6 +68,8 @@ bool DO_Image::Load_dynamic(int x, int y)
 
 bool DO_Image::Load_target(int x, int y)
 {
+	if (image != NULL)return false;
+
 	format = SDL_GetWindowSurface(win->window)->format;
 	image = SDL_CreateTexture(win->rend, format->format, SDL_TEXTUREACCESS_TARGET, x, y);
 	width = x;

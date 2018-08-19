@@ -1,4 +1,30 @@
-﻿  test2.cpp
+﻿  DO_Image.cpp
+DO_Graphics\DO_Image.cpp(78): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+DO_Graphics\DO_Image.cpp(134): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+DO_Graphics\DO_Image.cpp(135): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+DO_Graphics\DO_Image.cpp(136): warning C4244: “*=”: 从“double”转换到“int”，可能丢失数据
+DO_Graphics\DO_Image.cpp(152): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+DO_Graphics\DO_Image.cpp(160): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+  DO_Text.cpp
+DO_Graphics\DO_Text.cpp(32): warning C4838: 从“int”转换到“Uint8”需要收缩转换
+DO_Graphics\DO_Text.cpp(36): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+DO_Graphics\DO_Text.cpp(59): warning C4838: 从“int”转换到“Uint8”需要收缩转换
+DO_Graphics\DO_Text.cpp(63): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+DO_Graphics\DO_Text.cpp(76): warning C4244: “*=”: 从“float”转换到“int”，可能丢失数据
+DO_Graphics\DO_Text.cpp(103): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+DO_Graphics\DO_Text.cpp(112): warning C4244: “参数”: 从“short”转换到“Uint8”，可能丢失数据
+  DO_Window.cpp
+DO_Graphics\DO_Window.cpp(18): warning C4244: “=”: 从“float”转换到“Uint64”，可能丢失数据
+DO_Graphics\DO_Window.cpp(73): warning C4800: “const Uint8”: 将值强制为布尔值“true”或“false”(性能警告)
+  test.cpp
+DO_Graphics\test.cpp(8): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+DO_Graphics\test.cpp(12): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+DO_Graphics\test.cpp(16): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+DO_Graphics\test.cpp(17): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+DO_Graphics\test.cpp(42): warning C4305: “参数”: 从“double”到“float”截断
+DO_Graphics\test.cpp(42): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+DO_Graphics\test.cpp(42): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  test2.cpp
 DO_Graphics\test2.cpp(60): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
 DO_Graphics\test2.cpp(63): warning C4244: “参数”: 从“double”转换到“short”，可能丢失数据
 DO_Graphics\test2.cpp(64): warning C4244: “参数”: 从“double”转换到“short”，可能丢失数据
@@ -8,11 +34,13 @@ DO_Graphics\test2.cpp(70): warning C4244: “参数”: 从“double”转换到
 DO_Graphics\test2.cpp(71): warning C4244: “参数”: 从“double”转换到“short”，可能丢失数据
 DO_Graphics\test2.cpp(72): warning C4244: “参数”: 从“double”转换到“short”，可能丢失数据
 DO_Graphics\test2.cpp(74): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+  test3.cpp
+  test4.cpp
     正在创建库 E:\我的 东东\EasyX学习\SDL\DO_Graphics\x64\Release\DO_Graphics.lib 和对象 E:\我的 东东\EasyX学习\SDL\DO_Graphics\x64\Release\DO_Graphics.exp
   正在生成代码
-  31 of 74 functions (41.9%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+  11 of 28 functions (39.3%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   DO_Graphics.vcxproj -> E:\我的 东东\EasyX学习\SDL\DO_Graphics\x64\Release\DO_Graphics.exe
   DO_Graphics.vcxproj -> E:\我的 东东\EasyX学习\SDL\DO_Graphics\x64\Release\DO_Graphics.pdb (Full PDB)
