@@ -11,9 +11,10 @@ class DO_Image
 {
 private:
 	SDL_Texture *image;
-	bool static_ = false;//图片是否静态
+	short status = 0;//图片是以第几种方式加载
 
 	DO_Window *win;
+
 	DO_Image();
 public:
 	double angle;
@@ -24,23 +25,23 @@ public:
 
 	DO_Image(DO_Window *w) :image(NULL), angle(0), zoom(100.00), R(255), G(255), B(255), A(255), win(w){}
 
-	/*从现有sdl纹理加载（不能修改像素）
+	/*从现有sdl纹理加载（不能修改像素）status = 1
 	参数:p文件名*/
-	bool Load_texture(SDL_Texture *);
+	bool Load_texture(SDL_Texture *); 
 
-	/*获取静态图片（不能修改像素）
+	/*获取静态图片（不能修改像素）status = 2
 	参数:p文件名*/
 	bool Load_static(char p[22]);
 
-	/*获取动态图片（允许修改像素）,从文件中加载
+	/*获取动态图片（允许修改像素）,从文件中加载 status = 3
 	参数:p文件名*/
 	bool Load_dynamic(char p[22]);
 
-	/*获取动态图片（允许修改像素）,创建一个指定大小的空IMAGE
+	/*获取动态图片（允许修改像素）,创建一个指定大小的空IMAGE status = 4
 	参数:x 横坐标，y 纵坐标*/
 	bool Load_dynamic(int x,int y);
 
-	/*加载成画布（不能修改像素），一开始是空的，可用SDL_SetRenderTarget操作
+	/*加载成画布（不能修改像素），一开始是空的，可用SDL_SetRenderTarget操作 status = 5
 	参数:x 横坐标，y 纵坐标*/
 	bool Load_target(int x,int y);
 
@@ -56,7 +57,7 @@ public:
 
 	/*设置一堆像素，只能操作 用Load_dynamic创建的IMAGE
 	参数:x 横坐标，y 纵坐标 r、g、b、a 颜色通道*/
-	bool setPixels(std::function<void(int x, int y, Uint32 *pixel)>);
+	bool setPixels(std::function<void(int x, int y, Uint8 &r, Uint8 &g, Uint8 &b, Uint8 &a)>);
 
 	/*在(x,y)位置绘图，注意，这个坐标是IMAGE的中心所在位置！不是左上角
 	这里的(cx,cy)是旋转中心，跟绘图基准点无关！*/

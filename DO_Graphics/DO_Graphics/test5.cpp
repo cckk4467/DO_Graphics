@@ -14,6 +14,7 @@ float get_distance(SDL_Point p1, SDL_Point p2)
 
 	return distance;
 }
+/*网上抄的生成一种超圆超无违和感的粒子Texture的算法:)*/
 SDL_Texture* create_glow_ball(SDL_Renderer* renderer, int radius, int r, int g, int b, int dim)
 {
 	float relative_dist = 0;
@@ -73,7 +74,7 @@ SDL_Texture* create_glow_ball(SDL_Renderer* renderer, int radius, int r, int g, 
 }
 double cloudx[300], cloudy[300], alp[300],ang[300];
 int js = 0;
-int main(int argc, char *argv[])
+int main5(int argc, char *argv[])
 {
 	DO_Window win(640, 480, "点模糊", "simhei.ttf", 16);
 	DO_Image ima(&win);

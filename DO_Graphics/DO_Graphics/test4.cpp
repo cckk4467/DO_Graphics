@@ -30,13 +30,12 @@ int main4(int argc, char *argv[])
 	srand(time(0));
 	double r = ima.getR(), g = ima.getG(), b = ima.getB(), a=1;
 	bj.reset();
-	ima.setPixels([&](int x, int y, Uint32* p)
+	ima.setPixels([&](int x, int y, Uint8 &r, Uint8 &g, Uint8 &b, Uint8 &a)
 	{
-		p[ima.PtoL(x, y)] = SDL_MapRGBA(ima.format,
-			0*max(1 - hypot(x - 15, y - 15) / 16, 0),
-			255,
-			255,
-			255.0*max(1 - hypot(x - 15, y - 15) / 16, 0));//
+		r = 0 * max(1 - hypot(x - 15, y - 15) / 16, 0);
+		g = 255;
+		b = 255;
+		a = 255.0*max(1 - hypot(x - 15, y - 15) / 16, 0);
 	});//这就是点模糊我能写的最高效率的代码了，cpu在循环体跑20fps哈哈哈，配合setrgb、setalpha可以写个不错的粒子系统了
 	//gay(&ima, 150, 150, 100);
 	while (win.BeginDraw())
